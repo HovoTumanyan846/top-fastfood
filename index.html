@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOP FASTFOOD — Вкус на высоте</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="intro" id="intro">
+    <div class="floating-food">🍔 🍕 🥤 🍟 🍕 🍔</div>
+    <div class="intro-content">
+      <div class="logo-mark">TOP <span>FASTFOOD</span></div>
+      <p>ТВОЙ ВКУС. ТВОИ ПРАВИЛА.</p>
+      <div class="loading-line"><span></span></div>
+    </div>
+  </div>
+
+  <div class="login-overlay" id="loginOverlay">
+    <form class="login-card" id="loginForm">
+      <div class="small-logo">TOP <span>FASTFOOD</span></div>
+      <div class="login-emoji">🍔</div>
+      <h1>Добро пожаловать!</h1>
+      <p>Заполни данные и открывай мир вкусной еды.</p>
+
+      <div class="form-grid">
+        <label>Имя
+          <input name="firstName" placeholder="Твоё имя" required>
+        </label>
+        <label>Фамилия
+          <input name="lastName" placeholder="Твоя фамилия" required>
+        </label>
+        <label class="full-width">Страна
+          <input name="country" placeholder="Например, Армения" required>
+        </label>
+        <label class="full-width">Номер телефона
+          <input name="phone" type="tel" placeholder="+374 ..." required>
+        </label>
+        <label class="full-width">Электронная почта
+          <input name="email" type="email" placeholder="you@example.com" required>
+        </label>
+      </div>
+      <button class="primary-button" type="submit">ВОЙТИ В МИР ВКУСА <span>→</span></button>
+      <p class="privacy-note">Данные используются только для демонстрации интерфейса.</p>
+    </form>
+  </div>
+
+  <header class="site-header">
+    <a href="#" class="brand" aria-label="TOP FASTFOOD">
+      <span class="brand-top">TOP</span>
+      <span class="brand-bottom">FASTFOOD<span class="brand-dot">.</span></span>
+    </a>
+
+    <nav class="main-nav">
+      <a href="#home">Главная</a>
+      <a href="#menu">Меню</a>
+      <a href="#builder">Конструктор</a>
+    </nav>
+
+    <button class="cart-button" id="openCart">
+      <span>🛒</span> Корзина <b id="cartCount">0</b>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> СВЕЖЕЕ. ВКУСНОЕ. ТВОЁ.</div>
+        <h1>ГОЛОДЕН?<br>БЕРИ <span>БОЛЬШЕ!</span></h1>
+        <p>Бургеры, пиццы и напитки, которые делают твой день вкуснее. Собери свой идеальный заказ!</p>
+        <div class="hero-actions">
+          <a class="primary-button link-button" href="#menu">СМОТРЕТЬ МЕНЮ <span>↗</span></a>
+          <a class="secondary-button" href="#builder">СОЗДАТЬ СВОЙ БУРГЕР</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>12+</strong><span>Вкусных товаров</span></div>
+          <div><strong>100%</strong><span>Твой выбор</span></div>
+          <div><strong>∞</strong><span>Комбинаций</span></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-ring"></div>
+        <div class="hero-bubble bubble-one">TOP<br>DEAL!</div>
+        <div class="hero-bubble bubble-two">YUMMY<br>😋</div>
+        <div class="hero-food">🍔</div>
+        <div class="hero-chip">№1 ВКУС</div>
+      </div>
+    </section>
+
+    <section class="menu-section section-wrap" id="menu">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">ВЫБИРАЙ СВОЁ</div>
+          <h2>НАШЕ <span>МЕНЮ</span></h2>
+        </div>
+        <p>Любимые вкусы — в одном месте.</p>
+      </div>
+
+      <div class="category-tabs" id="categoryTabs">
+        <button class="category-tab active" data-category="all">🔥 Всё меню</button>
+        <button class="category-tab" data-category="burger">🍔 Бургеры</button>
+        <button class="category-tab" data-category="pizza">🍕 Пиццы</button>
+        <button class="category-tab" data-category="drink">🥤 Напитки</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="builder-section section-wrap" id="builder">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">ТЫ ШЕФ!</div>
+          <h2>СОЗДАЙ СВОЙ <span>ВКУС</span></h2>
+        </div>
+        <p>Добавляй ингредиенты и собирай идеальный бургер или пиццу.</p>
+      </div>
+
+      <div class="builder-layout">
+        <div class="builder-preview">
+          <div class="preview-topline">
+            <span>ТВОЁ ТВОРЕНИЕ</span>
+            <span class="custom-tag">CUSTOM ✦</span>
+          </div>
+          <div class="food-stage" id="foodStage">
+            <div class="food-base" id="foodBase">🍔</div>
+            <div class="ingredient-layer" id="ingredientLayer"></div>
+          </div>
+          <h3 id="builderFoodName">Мой бургер</h3>
+          <p id="builderDescription">Добавь ингредиенты справа</p>
+          <div class="builder-price-row">
+            <div><small>ИТОГОВАЯ ЦЕНА</small><strong id="builderPrice">1200 ֏</strong></div>
+            <button class="primary-button" id="addCustom">ДОБАВИТЬ В КОРЗИНУ +</button>
+          </div>
+        </div>
+
+        <div class="builder-controls">
+          <div class="builder-switch">
+            <button class="builder-type active" data-type="burger">🍔 БУРГЕР</button>
+            <button class="builder-type" data-type="pizza">🍕 ПИЦЦА</button>
+          </div>
+
+          <div class="builder-group">
+            <h3>01 / Основа</h3>
+            <div class="option-list" id="baseOptions"></div>
+          </div>
+
+          <div class="builder-group">
+            <h3>02 / Ингредиенты</h3>
+            <p class="muted">Выбирай и снимай галочки — цена пересчитывается автоматически.</p>
+            <div class="ingredient-options" id="ingredientOptions"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="promo-banner section-wrap">
+      <div>
+        <div class="eyebrow">ТВОЙ ЗАКАЗ — ТВОИ ПРАВИЛА</div>
+        <h2>СОБЕРИ СВОЙ<br><span>ТОПОВЫЙ ВКУС!</span></h2>
+        <p>Выбирай любимое и добавляй в корзину.</p>
+        <a class="primary-button link-button" href="#builder">НАЧАТЬ СОБИРАТЬ ↗</a>
+      </div>
+      <div class="promo-emoji">🍕</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="#home" class="brand">
+      <span class="brand-top">TOP</span>
+      <span class="brand-bottom">FASTFOOD<span class="brand-dot">.</span></span>
+    </a>
+    <p>Большой вкус. Твой выбор.</p>
+    <span>© 2026 TOP FASTFOOD</span>
+  </footer>
+
+  <div class="modal-backdrop" id="cartModal">
+    <div class="modal-card">
+      <button class="close-button" data-close="cartModal" aria-label="Закрыть">×</button>
+      <div class="eyebrow">ТВОЙ ВЫБОР</div>
+      <h2>ТВОЯ <span>КОРЗИНА</span></h2>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-bottom">
+        <div><span>ИТОГО</span><strong id="cartTotal">0 ֏</strong></div>
+        <button class="primary-button" id="checkoutButton">ОФОРМИТЬ ЗАКАЗ →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="checkoutModal">
+    <form class="modal-card checkout-card" id="checkoutForm">
+      <button type="button" class="close-button" data-close="checkoutModal" aria-label="Закрыть">×</button>
+      <div class="eyebrow">ПОСЛЕДНИЙ ШАГ</div>
+      <h2>ОФОРМЛЕНИЕ <span>ЗАКАЗА</span></h2>
+      <p class="muted">Проверь заказ и укажи данные для демонстрации оформления.</p>
+
+      <div class="order-summary" id="orderSummary"></div>
+
+      <div class="decorative-card">
+        <div class="decorative-card-top"><span>TOP FASTFOOD</span><span>✦ ✦</span></div>
+        <div class="decorative-chip">▦</div>
+        <div class="decorative-card-number" id="maskedCode">•••• ••••</div>
+        <div class="decorative-card-bottom"><span>ORDER CODE</span><span>DEMO</span></div>
+      </div>
+
+      <label class="checkout-label">Код заказа (8 цифр)
+        <input id="orderCode" type="password" inputmode="numeric" maxlength="8"
+               pattern="[0-9]{8}" placeholder="••••••••" autocomplete="off" required>
+      </label>
+      <p class="muted small-text">Введи произвольный 8-значный код для демонстрации. Не вводи банковские данные.</p>
+
+      <button class="primary-button full-button" type="submit">ПОДТВЕРДИТЬ ЗАКАЗ ✓</button>
+    </form>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
